@@ -1,0 +1,6 @@
+framework module Pods_InListTests {
+  umbrella header "Pods-InListTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

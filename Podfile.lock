@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.10.2)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - SkeletonView (1.17.2)
+
+DEPENDENCIES:
+  - Moya (= 15.0.0)
+  - SkeletonView (= 1.17.2)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SkeletonView: 7aba21d10df8d0530189379ebe02e02a192d8132
+
+PODFILE CHECKSUM: 5f3158c05ca76fd09a2d1f9d772b88c710b26fea
+
+COCOAPODS: 1.16.2

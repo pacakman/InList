@@ -1,0 +1,6 @@
+framework module Pods_InList_InListUITests {
+  umbrella header "Pods-InList-InListUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
