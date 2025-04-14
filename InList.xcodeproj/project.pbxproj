@@ -40,6 +40,8 @@
 		09EE68202DAD557600044752 /* Exceptions for "InList" folder in "InListTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Modules/Home/Cell/InsuranceCell.swift,
+				Modules/Home/Cell/InsuranceCell.xib,
 				Modules/Home/HomeViewController.swift,
 				Modules/Home/HomeViewController.xib,
 			);
