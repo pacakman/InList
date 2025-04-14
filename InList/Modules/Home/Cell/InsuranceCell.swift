@@ -26,9 +26,9 @@ class InsuranceCell: UITableViewCell {
 		insuranceTitle.isHidden = false
 	}
 	
-	func setupEmptyResult() {
+	func setupEmptyResult(insurance: InsuranceCellModel) {
 		insuranceTitle.isHidden = true
-		insuranceBody.text = "Asuransi tidak ditemukan"
+		insuranceBody.text = insurance.body
 		insuranceBody.textAlignment = .center
 	}
 }

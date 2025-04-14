@@ -12,7 +12,6 @@ class InsuranceDetailViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet weak var insuranceBody: UILabel!
 	@IBOutlet weak var insuranceTitle: UILabel!
-	@IBOutlet weak var insuranceClaimID: UILabel!
 	
 	var insurance: InsuranceCellModel?
 

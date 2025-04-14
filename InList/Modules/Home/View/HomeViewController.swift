@@ -69,7 +69,7 @@ extension HomeViewController: SkeletonTableViewDataSource, UITableViewDelegate {
 		let insuranceAt = viewModel.selectItemAt(index: indexPath.row)
 		if let cell = tableView.dequeueCell(with: InsuranceCell.self) {
 			if viewModel.numOfRows() == 1 && !viewModel.keyword.isEmpty {
-				cell.setupEmptyResult()
+				cell.setupEmptyResult(insurance: insuranceAt)
 				cell.selectionStyle = .none
 			}
 			else {
@@ -83,7 +83,7 @@ extension HomeViewController: SkeletonTableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if viewModel.numOfRows() > 0 {
+		if viewModel.isInsuranceFound(index: indexPath.row){
 			let vc = InsuranceDetailViewController()
 			vc.insurance = viewModel.selectItemAt(index: indexPath.row)
 			navigationController?.pushViewController(vc, animated: true)
@@ -99,10 +99,9 @@ extension HomeViewController: UISearchBarDelegate {
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		viewModel.keyword = ""
 		searchBar.text = ""
-		viewModel.filterInsuranceCell { [weak self] in
+		viewModel.getInsuranceList { [weak self] in
 			self?.searchBar.endEditing(true)
 			self?.searchBar.showsCancelButton = false
-			self?.tableView.reloadData()
 		}
 	}
 	

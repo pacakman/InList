@@ -4,6 +4,7 @@
 //
 //  Created by Idris on 14/04/25.
 //
+import Foundation
 
 class HomeViewModel {
 	
@@ -17,9 +18,7 @@ class HomeViewModel {
 	
 	var updateLoadingStatus: ((Bool) -> Void)?
 	var didGetInsurance: (() -> Void)?
-	var showErrorMessage: ((String) -> Void)?
 	var keyword: String = ""
-	var isSearchActive: Bool = false
 	
 	init(withService service: HomeServiceProtocol = HomeService() ) {
 		self.service = service
@@ -36,10 +35,12 @@ class HomeViewModel {
 	func getInsuranceList(completion: (() -> Void)? = nil) {
 		self.updateLoadingStatus?(true)
 		service.getInsuranceList { [weak self] result in
-			self?.updateLoadingStatus?(false)
-			self?.insuranceListCell = result.map({InsuranceCellModel(title: $0.title, body: $0.body)})
-			self?.didGetInsurance?()
-			completion?()
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+				self?.updateLoadingStatus?(false)
+				self?.insuranceListCell = result.map({InsuranceCellModel(title: $0.title, body: $0.body)})
+				self?.didGetInsurance?()
+				completion?()
+			})
 		} onFailure: { [weak self] error in
 			self?.updateLoadingStatus?(false)
 			completion?()
@@ -56,5 +57,10 @@ class HomeViewModel {
 			})
 		}
 		completion?()
+	}
+	
+	func isInsuranceFound(index: Int) -> Bool {
+		let insuranceAt = self.selectItemAt(index: index)
+		return insuranceAt.body.lowercased() != "asuransi tidak ditemukan"
 	}
 }
