@@ -48,6 +48,7 @@
 		09EE68202DAD557600044752 /* Exceptions for "InList" folder in "InListTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				Modules/Home/Cell/InsuranceCell.swift,
 				Modules/Home/Cell/InsuranceCell.xib,
 				Modules/Home/View/HomeViewController.swift,
@@ -55,12 +56,20 @@
 			);
 			target = 09EE67F52DAD41FD00044752 /* InListTests */;
 		};
+		09EE69352DAD75DA00044752 /* Exceptions for "InList" folder in "InList" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 09EE67DF2DAD41F900044752 /* InList */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		09EE67E22DAD41F900044752 /* InList */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				09EE69352DAD75DA00044752 /* Exceptions for "InList" folder in "InList" target */,
 				09EE68202DAD557600044752 /* Exceptions for "InList" folder in "InListTests" target */,
 			);
 			path = InList;
