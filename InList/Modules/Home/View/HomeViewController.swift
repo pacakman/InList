@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
 			tableView.delegate = self
 			tableView.dataSource = self
 			tableView.registerNIB(with: InsuranceCell.self)
-			tableView.estimatedRowHeight = 100
+			tableView.estimatedRowHeight = 90
 			tableView.showsVerticalScrollIndicator = false
 		}
 	}

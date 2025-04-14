@@ -24,6 +24,7 @@ class InsuranceCell: UITableViewCell {
 		insuranceTitle.text = insurance.title
 		insuranceBody.text = insurance.body
 		insuranceTitle.isHidden = false
+		insuranceBody.textAlignment = .left
 	}
 	
 	func setupEmptyResult(insurance: InsuranceCellModel) {
