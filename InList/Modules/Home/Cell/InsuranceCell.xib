@@ -24,12 +24,18 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezs-ZX-u1t">
                                 <rect key="frame" x="16" y="44.666666666666664" width="288" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-5O-FG3" userLabel="Spacer View">
                                 <rect key="frame" x="16" y="73" width="288" height="4"/>
@@ -37,6 +43,9 @@
                             </view>
                         </subviews>
                         <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -45,8 +54,14 @@
                     <constraint firstItem="QB6-b9-wIO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cuf-Pa-Glq"/>
                     <constraint firstAttribute="bottom" secondItem="QB6-b9-wIO" secondAttribute="bottom" id="fcr-wU-VNe"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="insuranceBody" destination="ezs-ZX-u1t" id="kzU-0m-Zb9"/>
                 <outlet property="insuranceTitle" destination="UAc-TK-Obi" id="q8g-ZS-dNi"/>

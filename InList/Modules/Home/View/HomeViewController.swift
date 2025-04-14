@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeViewController: UIViewController {
 	
@@ -18,6 +19,8 @@ class HomeViewController: UIViewController {
 			tableView.delegate = self
 			tableView.dataSource = self
 			tableView.registerNIB(with: InsuranceCell.self)
+			tableView.estimatedRowHeight = 100
+			tableView.showsVerticalScrollIndicator = false
 		}
 	}
 	
@@ -29,14 +32,29 @@ class HomeViewController: UIViewController {
     }
 	
 	private func setupViewModel() {
+		viewModel.updateLoadingStatus = { [weak self] isLoading in
+			if isLoading {
+				self?.tableView.showAnimatedGradientSkeleton()
+			}
+			else {
+				self?.tableView.stopSkeletonAnimation()
+				self?.tableView.hideSkeleton()
+			}
+		}
 		viewModel.getInsuranceList()
 		viewModel.didGetInsurance = { [weak self] in
 			self?.tableView.reloadData()
 		}
+		
 	}
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: SkeletonTableViewDataSource, UITableViewDelegate {
+	
+	func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+		return String(describing: InsuranceCell.self)
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return viewModel.numOfRows()
 	}
