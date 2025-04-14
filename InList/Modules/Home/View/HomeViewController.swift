@@ -70,14 +70,24 @@ extension HomeViewController: SkeletonTableViewDataSource, UITableViewDelegate {
 		if let cell = tableView.dequeueCell(with: InsuranceCell.self) {
 			if viewModel.numOfRows() == 1 && !viewModel.keyword.isEmpty {
 				cell.setupEmptyResult()
+				cell.selectionStyle = .none
 			}
 			else {
 				cell.setupCell(insurance: insuranceAt)
+				cell.selectionStyle = .none
 			}
 			return cell
 		}
 		
 		return UITableViewCell()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if viewModel.numOfRows() > 0 {
+			let vc = InsuranceDetailViewController()
+			vc.insurance = viewModel.selectItemAt(index: indexPath.row)
+			navigationController?.pushViewController(vc, animated: true)
+		}
 	}
 }
 

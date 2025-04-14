@@ -53,6 +53,8 @@
 				Modules/Home/Cell/InsuranceCell.xib,
 				Modules/Home/View/HomeViewController.swift,
 				Modules/Home/View/HomeViewController.xib,
+				Modules/InsuranceDetail/View/InsuranceDetailViewController.swift,
+				Modules/InsuranceDetail/View/InsuranceDetailViewController.xib,
 			);
 			target = 09EE67F52DAD41FD00044752 /* InListTests */;
 		};
