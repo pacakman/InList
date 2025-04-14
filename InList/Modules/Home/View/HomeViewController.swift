@@ -24,6 +24,12 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	@IBOutlet private weak var searchBar: UISearchBar! {
+		didSet {
+			searchBar.delegate = self
+		}
+	}
+	
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +68,40 @@ extension HomeViewController: SkeletonTableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let insuranceAt = viewModel.selectItemAt(index: indexPath.row)
 		if let cell = tableView.dequeueCell(with: InsuranceCell.self) {
-			cell.setupCell(insurance: insuranceAt)
+			if viewModel.numOfRows() == 1 && !viewModel.keyword.isEmpty {
+				cell.setupEmptyResult()
+			}
+			else {
+				cell.setupCell(insurance: insuranceAt)
+			}
 			return cell
 		}
 		
 		return UITableViewCell()
+	}
+}
+
+extension HomeViewController: UISearchBarDelegate {
+	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+		searchBar.showsCancelButton = true
+	}
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		viewModel.keyword = ""
+		searchBar.text = ""
+		viewModel.filterInsuranceCell { [weak self] in
+			self?.searchBar.endEditing(true)
+			self?.searchBar.showsCancelButton = false
+			self?.tableView.reloadData()
+		}
+	}
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		viewModel.keyword = searchBar.text ?? ""
+		viewModel.filterInsuranceCell { [weak self] in
+			self?.searchBar.endEditing(true)
+			self?.searchBar.showsCancelButton = false
+			self?.tableView.reloadData()
+		}
 	}
 }

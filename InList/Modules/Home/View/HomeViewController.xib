@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="InList" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="Qvd-pI-JAn" id="2Ka-NS-vOF"/>
                 <outlet property="tableView" destination="2nS-2h-L9J" id="afD-ri-b7M"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,22 +20,37 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2nS-2h-L9J">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K5u-lT-fP6">
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </tableView>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="Cari Asuransi" translatesAutoresizingMaskIntoConstraints="NO" id="Qvd-pI-JAn">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="rCV-Zy-rRa"/>
+                            </constraints>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Lul-7Z-aTM"/>
+                            </connections>
+                        </searchBar>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2nS-2h-L9J">
+                            <rect key="frame" x="0.0" y="48" width="393" height="745"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="2nS-2h-L9J" secondAttribute="bottom" id="855-Gp-dZX"/>
-                <constraint firstItem="2nS-2h-L9J" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hi8-Q9-eCM"/>
-                <constraint firstItem="2nS-2h-L9J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lQt-X9-0OG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2nS-2h-L9J" secondAttribute="trailing" id="s2N-SW-HKN"/>
+                <constraint firstItem="K5u-lT-fP6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="S1B-1h-knd"/>
+                <constraint firstAttribute="bottom" secondItem="K5u-lT-fP6" secondAttribute="bottom" id="bMS-xw-2OP"/>
+                <constraint firstItem="K5u-lT-fP6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="glU-Vf-1t7"/>
+                <constraint firstItem="K5u-lT-fP6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n34-qs-TVq"/>
             </constraints>
             <point key="canvasLocation" x="18" y="20"/>
         </view>
